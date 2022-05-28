@@ -1,3 +1,5 @@
+import os
+import pypi_org.data.db_session as db_session
 import flask
 
 app = flask.Flask(__name__)
@@ -5,7 +7,17 @@ app = flask.Flask(__name__)
 
 def main():
     register_blueprints()
+    setup_db()
     app.run()
+
+
+def setup_db():
+    db_file = os.path.join(
+        os.path.dirname(__file__),
+        'db',
+        'pypi.sqlite')
+
+    db_session.global_init(db_file)
 
 
 def register_blueprints():

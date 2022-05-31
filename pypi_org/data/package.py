@@ -4,8 +4,12 @@ from data.modelbase import SqlAlchemyBase
 
 
 class Package(SqlAlchemyBase):
+    """The packages table for our Pypi database."""
+
+    # we don't want sqlAlchemy to name the table after the class 'Package', so name it the plural form 'packages'
     __tablename__ = 'packages'
 
+    # all the column names:
     id = sa.Column(sa.String, primary_key=True)
     created_date = sa.Column(sa.DateTime)
     summary = sa.Column(sa.String)

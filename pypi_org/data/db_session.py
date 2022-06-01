@@ -17,11 +17,11 @@ def global_init(db_file: str):
     if not db_file or not db_file.strip():
         raise Exception('You must specify a db file.')
 
-    # specify the database type
+    # specify the db dialect and the database API
     connection_str = 'sqlite:///' + db_file.strip()
 
-    # sqlalchemy needs 2 parts: an engine and a factory
-    engine = sa.create_engine(connection_str, echo=False)  # set echo=True to see what sqlalchemy is doing
+    # sqlalchemy engine
+    engine = sa.create_engine(connection_str, echo=True)  # set echo=True to see what sqlalchemy is doing
 
     # Create the session and reference the engine
     factory = orm.sessionmaker(bind=engine)

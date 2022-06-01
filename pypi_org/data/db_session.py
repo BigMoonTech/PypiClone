@@ -3,14 +3,14 @@ import sqlalchemy.orm as orm
 
 from pypi_org.data.modelbase import SqlAlchemyBase
 
-factory = None
+__factory = None
 
 
 def global_init(db_file: str):
-    global factory
+    global __factory
 
     # if factory has already been called, no need to call it again, so return
-    if factory:
+    if __factory:
         return
 
     # validate db_file is not whitespace or omitted altogether
@@ -24,9 +24,15 @@ def global_init(db_file: str):
     engine = sa.create_engine(connection_str, echo=True)  # set echo=True to see what sqlalchemy is doing
 
     # Create the session and reference the engine
-    factory = orm.sessionmaker(bind=engine)
+    __factory = orm.sessionmaker(bind=engine)
 
     # noinspection PyUnresolvedReferences
     import pypi_org.data.__all_models
 
     SqlAlchemyBase.metadata.create_all(engine)
+
+
+# noinspection PyCallingNonCallable
+def create_session() -> orm.Session:
+    global __factory
+    return __factory()

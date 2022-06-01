@@ -9,7 +9,7 @@ class User(SqlAlchemyBase):
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
 
     name = sa.Column(sa.String, nullable=True)
-    email = sa.Column(sa.String, nullable=True, index=True)
+    email = sa.Column(sa.String, nullable=True, index=True, unique=True)
     hashed_pw = sa.Column(sa.String, nullable=True, index=True)
     
     created_date = sa.Column(sa.DateTime, default=datetime.datetime.now, index=True)

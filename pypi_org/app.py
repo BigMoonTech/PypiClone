@@ -30,7 +30,7 @@ def setup_db():
     db_file = os.path.join(
         os.path.dirname(__file__),
         'db',
-        'pypi.db')
+        'pypi.sqlite')
 
     db_session.global_init(db_file)
 

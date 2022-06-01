@@ -1,2 +1,4 @@
 Flask
 SQLAlchemy
+progressbar2
+python-dateutil

@@ -310,7 +310,7 @@ def build_releases(package_id: str, releases: dict) -> List[Release]:
 
         r = Release()
         r.package_id = package_id
-        r.major_ver, r.minor_ver, r.build_ver = make_version_num(k)
+        r.major_version, r.minor_version, r.build_version = make_version_num(k)
         r.created_date = parse(v.get('upload_time'))
         r.comment = v.get('comment_text')
         r.url = v.get('url')

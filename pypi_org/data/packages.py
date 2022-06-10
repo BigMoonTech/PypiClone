@@ -14,6 +14,10 @@ class Package(SqlAlchemyBase):
     # all the column names:
     id = sa.Column(sa.String, primary_key=True)
     created_date = sa.Column(sa.DateTime, default=datetime.datetime.now, index=True)
+
+    # add a new column to test alembic
+    last_updated = sa.Column(sa.DateTime, default=datetime.datetime.now, index=True)
+
     summary = sa.Column(sa.String, nullable=False)
     description = sa.Column(sa.String, nullable=True)
 

@@ -108,6 +108,10 @@ label {
     margin: 30px 25px 15px 25px;
 }
 
+.package-list {
+    margin-bottom: 15px;
+}
+
 .package-list .subtitle {
     font-style: italic;
 }
@@ -144,7 +148,7 @@ label {
 footer {
     background-color: #0073b7;
     height: 150px;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     padding: 20px;
     text-align: center;
     color: white;

@@ -19,32 +19,40 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="name-input">Name</label>
-                                    <input type="text" id="name-input" class="form-control form-control-lg"
-                                           aria-describedby="name-help"/>
-                                    <div id="name-help" class="form-text">
+                                    <label class="form-label" for="nameInput">Name</label>
+                                    <input type="text" id="nameInput" name="name" class="form-control form-control-lg"
+                                           aria-describedby="nameHelp" value="{{ name }}"/>
+                                    <div id="nameHelp" class="form-text">
                                         Please enter your name.
                                     </div>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="email-input">Email</label>
-                                    <input type="email" id="email-input" class="form-control form-control-lg"
-                                           aria-describedby="email-help"/>
-                                    <div id="email-help" class="form-text">
+                                    <label class="form-label" for="emailInput">Email</label>
+                                    <input type="email" id="emailInput" name="email"
+                                           class="form-control form-control-lg"
+                                           aria-describedby="emailHelp" value="{{ email }}"/>
+                                    <div id="emailHelp" class="form-text">
                                         Please enter a valid email. (Your email will not be shared).
                                     </div>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="password-input">Password</label>
-                                    <input type="password" id="password-input" class="form-control form-control-lg"
-                                           aria-describedby="passwordHelpBlock"/>
+                                    <label class="form-label" for="passwordInput">Password</label>
+                                    <input type="password" id="passwordInput" name="password"
+                                           class="form-control form-control-lg"
+                                           aria-describedby="passwordHelpBlock" value="{{ password }}"/>
                                     <div id="passwordHelpBlock" class="form-text">
                                         Your password must be at least 8 characters long, contain letters and numbers,
                                         and must not contain spaces, special characters, or emoji.
                                     </div>
                                 </div>
+
+                                {% if error %}
+                                    <div class="error-msg">
+                                        {{ error }}
+                                    </div>
+                                {% endif %}
 
                                 <div class="text-center">
                                     <button class="btn btn-danger btn-lg btn-block" type="submit">Register</button>
@@ -58,5 +66,4 @@
             </div>
         </div>
     </section>
-
 {% endblock %}

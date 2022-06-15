@@ -5,3 +5,9 @@
 .card {
     border-radius: 1rem;
 }
+
+.error-msg {
+    color: #bb0d0d;
+    text-align: center;
+    margin-bottom: 10px;
+}

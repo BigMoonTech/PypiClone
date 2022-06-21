@@ -1,7 +1,6 @@
 import flask
-
 from pypi_org.infrastructure.view_modifiers import response
-import pypi_org.services.package_service as package_service
+from pypi_org.viewmodels.packages.packages_viewmodel import PackagesViewModel
 
 blueprint = flask.Blueprint('packages', __name__, template_folder='templates')
 
@@ -9,29 +8,17 @@ blueprint = flask.Blueprint('packages', __name__, template_folder='templates')
 @blueprint.route('/project/<package_name>')
 @response(template_file='packages/details.html')
 def package_details(package_name: str):
-    if not package_name:
+    view_model = PackagesViewModel(package_name)
+    view_model.validate()
+
+    if view_model.error:
         return flask.abort(status=404)
 
-    package = package_service.get_package_by_id(package_name.strip().lower())
+    if view_model.package.releases:
+        view_model.latest_release = view_model.package.releases[0]
+        view_model.latest_version = view_model.latest_release.version_text
 
-    if not package:
-        return flask.abort(status=404)
-
-    latest_release = '0.0.0'
-    latest_version = None
-    is_latest = True
-
-    if package.releases:
-        latest_release = package.releases[0]
-        latest_version = latest_release.version_text
-
-    return {
-        'package': package,
-        'latest_version': latest_version,
-        'latest_release': latest_release,
-        'release_version': latest_release,
-        'is_latest': is_latest
-    }
+    return view_model.to_dict()
 
 
 @blueprint.route('/<int:rank>')

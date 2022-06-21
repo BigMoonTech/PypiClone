@@ -1,8 +1,9 @@
 {% extends "shared/_layout.html" %}
 
 {% block main_content %}
-    <h1>Python Package Index</h1>
+    <h1>{{ user.name }}'s PyPi Account</h1>
 
-    <h2>Packages</h2>
-
+    <div>
+        Welcome {{ user.name }}!
+    </div>
 {% endblock %}

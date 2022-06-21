@@ -22,14 +22,18 @@
                                     <label class="form-label" for="emailInput">Email</label>
                                     <input type="email" id="emailInput" name="email"
                                            class="form-control form-control-lg"
-                                           aria-label="enter email" value="{{ email }}"/>
+                                           aria-label="enter email"
+                                           value="{{ email }}"
+                                           required/>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="passwordInput">Password</label>
                                     <input type="password" id="passwordInput" name="password"
                                            class="form-control form-control-lg"
-                                           aria-label="enter password" value="{{ password }}"/>
+                                           aria-label="enter password"
+                                           value="{{ password }}"
+                                           required/>
                                 </div>
 
                                 {% if error %}

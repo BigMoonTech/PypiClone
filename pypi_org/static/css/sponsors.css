@@ -1,0 +1,49 @@
+.btn-sponsor {
+    background-color: #2B6DA8;
+    color: white;
+    border-radius: 2px;
+}
+
+.btn-sponsor:hover {
+    color: white;
+    background-color: #265377;
+}
+
+.card-body {
+    padding: 2rem 2rem;
+}
+
+.card {
+    height: auto;
+}
+
+.container-sponsor {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sponsor {
+    margin: 3rem 4rem;
+}
+
+.sponsor-benefits {
+    background-color: #ECECEC;
+    display: inline-flex;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sponsor-card {
+    border-color: #2B6DA8;
+    border-width: 2px;
+}
+
+.sponsor-card-header {
+    background-color: #2B6DA8;
+    color: white;
+    height: auto;
+}
+
+li {
+    margin-bottom: 1.5rem;
+}

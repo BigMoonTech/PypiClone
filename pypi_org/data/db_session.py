@@ -21,7 +21,7 @@ def global_init(db_file: str):
     connection_str = 'sqlite:///' + db_file.strip()
 
     # sqlalchemy engine
-    engine = sa.create_engine(connection_str, echo=True)  # set echo=True to see what sqlalchemy is doing
+    engine = sa.create_engine(connection_str, echo=False)  # set echo=True to see what sqlalchemy is doing
 
     # Create the session and reference the engine
     __factory = orm.sessionmaker(bind=engine)

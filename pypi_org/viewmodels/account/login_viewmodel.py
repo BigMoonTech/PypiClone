@@ -1,4 +1,4 @@
-from viewmodels.shared.viewmodel_base import ViewModelBase
+from pypi_org.viewmodels.shared.viewmodel_base import ViewModelBase
 
 
 class LoginViewModel(ViewModelBase):

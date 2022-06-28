@@ -1,5 +1,5 @@
-from services import user_service
-from viewmodels.shared.viewmodel_base import ViewModelBase
+from pypi_org.services import user_service
+from pypi_org.viewmodels.shared.viewmodel_base import ViewModelBase
 
 
 class RegisterViewModel(ViewModelBase):

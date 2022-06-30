@@ -22,6 +22,5 @@ def package_details(package_name: str):
 
 
 @blueprint.route('/<int:rank>')
-# @response(template_file='packages/details.html')
 def popular_packages(rank: int):
     return "Package details for the {}th most popular package".format(rank)

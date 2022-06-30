@@ -1,3 +1,5 @@
+# noinspection PyUnresolvedReferences
+import pypi_org.services.package_service
 from tests.test_client import flask_app, client
 
 from flask import Response
@@ -26,3 +28,12 @@ def test_package_details_found_ok():
             resp: Response = package_details(test_package.id)
 
     assert b'sqlalchemy 1.2.200' in resp.data
+
+
+def test_package_details_not_found_404(client):
+    bad_package_url = 'project/sqlalchemy_superfuntime'
+    target = 'pypi_org.services.package_service.get_package_by_id'
+    with unittest.mock.patch(target, return_value=None):
+        resp: Response = client.get(bad_package_url)
+
+    assert resp.status_code == 404

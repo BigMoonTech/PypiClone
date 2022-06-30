@@ -41,3 +41,14 @@ def get_package_count() -> int:
 def get_release_count() -> int:
     session = db_session.create_session()
     return session.query(Release).count()
+
+
+def all_packages() -> List[Package]:
+    session = db_session.create_session()
+
+    packages = session.query(Package)
+
+    try:
+        return list(packages)
+    finally:
+        session.close()

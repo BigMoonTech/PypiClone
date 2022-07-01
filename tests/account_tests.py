@@ -1,7 +1,5 @@
 from flask import Response
-
-# noinspection PyUnresolvedReferences
-from test_client import flask_app, client
+from test_client import flask_app
 from pypi_org.data.users import User
 import unittest.mock
 

@@ -1,6 +1,6 @@
 # noinspection PyUnresolvedReferences
 import pypi_org.services.package_service
-from tests.test_client import flask_app, client
+from tests.test_client import flask_app
 
 from flask import Response
 import unittest.mock

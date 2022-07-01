@@ -1,6 +1,5 @@
 from flask import Response
-# noinspection PyUnresolvedReferences
-from tests.test_client import client, flask_app
+from tests.test_client import flask_app
 from views import home_views
 
 
